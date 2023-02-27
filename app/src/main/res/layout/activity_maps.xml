@@ -10,6 +10,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
         map:layout_constraintBottom_toTopOf="@+id/edTPlaceName"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
@@ -19,16 +20,15 @@
     <EditText
         android:id="@+id/edTPlaceName"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:hint="Place Name"
         map:layout_constraintBottom_toTopOf="@+id/btSave"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent" />
+        map:layout_constraintStart_toStartOf="parent"/>
+
 
     <Button
         android:id="@+id/btSave"
@@ -38,7 +38,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="save"
-        android:text="Button"
+        android:text="Save"
         map:layout_constraintBottom_toTopOf="@+id/btDelete"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +51,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="delete"
-        android:text="Button"
+        android:text="Delete"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent" />

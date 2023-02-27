@@ -56,7 +56,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val view = binding.root
+        setContentView(view)
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -183,7 +184,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         binding.btSave.isEnabled = true
     }
 
-    private fun save(view: View){
+    fun save(view: View?){
         if(selectedLatitude != null && selectedLongitude != null ){
             val place = Place(binding.edTPlaceName.text.toString(),selectedLatitude!!,selectedLongitude!!)
             compositeDisposable.add(
@@ -201,15 +202,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         startActivity(intent)
     }
 
-    private fun delete(view: View){
-         placeFromMain?.let {
-             compositeDisposable.add(
-                 placeDao.deletePlace(it)
-                     .subscribeOn(Schedulers.io())
-                     .observeOn(AndroidSchedulers.mainThread())
-                     .subscribe(this::handleResponse)
-             )
-         }
+    fun delete(view: View?){
+        placeFromMain?.let {
+            compositeDisposable.add(
+                placeDao.deletePlace(it)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::handleResponse)
+            )
+        }
     }
 
     override fun onDestroy() {
